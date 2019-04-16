@@ -4,7 +4,7 @@ class Api::V1::StocksController < Api::V1::ApiController
   
     # GET /api/v1/stocks.json
     def index
-      @stocks = Stocks.all
+      @stocks = Stock.all
   
       render json: @stocks
     end
