@@ -1,10 +1,10 @@
 class Api::V1::StocksController < Api::V1::ApiController
     before_action :set_stock, only: [:show, :update, :destroy]
-    before_action :require_authorization!, only: [:show, :update, :destroy]
+   
   
     # GET /api/v1/stocks.json
     def index
-      @stocks = current_user.stocks
+      @stocks = Stocks.all
   
       render json: @stocks
     end
