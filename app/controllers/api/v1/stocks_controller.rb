@@ -50,10 +50,6 @@ class Api::V1::StocksController < Api::V1::ApiController
         params.require(:stock).permit(:provider, :name, :email, :description, :price, :amount)
       end
   
-      def require_authorization!
-        unless current_user == @stock.user
-          render json: {}, status: :forbidden
-        end
-      end
+    
   end
   
