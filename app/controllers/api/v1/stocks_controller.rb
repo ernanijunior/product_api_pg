@@ -1,6 +1,6 @@
 class Api::V1::ContactsController < Api::V1::ApiController
     before_action :set_stock, only: [:show, :update, :destroy]
-    before_action :require_authorization!, only: [:show, :update, :destroy]
+ 
   
     # GET /api/v1/stocks.json
     def index
@@ -41,12 +41,12 @@ class Api::V1::ContactsController < Api::V1::ApiController
   
     private
       # Use callbacks to share common setup or constraints between actions.
-      def set_contact
+      def set_stock
         @stock = Stock.find(params[:id])
       end
   
       # Only allow a trusted parameter "white list" through.
-      def contact_params
+      def stock_params
         params.require(:stock).permit(:provider, :name, :email, :description, :price, :amount)
       end
   
